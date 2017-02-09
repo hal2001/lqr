@@ -1,0 +1,18 @@
+Package: lqr
+Type: Package
+Title: TODO
+Version: 0.1-0
+Description: TODO
+License: BSD 2-clause License + file LICENSE
+Depends:
+    R (>= 3.1.0)
+NeedsCompilation: yes
+ByteCompile: yes
+URL: https://github.com/wrathematics/lqr
+BugReports: https://github.com/wrathematics/lqr/issues
+Authors@R: c(person("Drew", "Schmidt", role=c("aut", "cre"),
+    email="wrathematics@gmail.com"), 
+    person("Christian", "Heckendorf", role="ctb", comment="Caught some
+    memory errors."))
+Maintainer: Drew Schmidt <wrathematics@gmail.com>
+RoxygenNote: 5.0.1
