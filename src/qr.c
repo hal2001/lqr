@@ -23,25 +23,31 @@ static inline SEXP get_R(cint m, cint n, cdbl_r QR)
   newRmat(R_, minmn, n, "dbl");
   double *const R = DBLP(R_);
   
-  if (m >= n)
+  // if (m >= n)
+  // {
+  //   for (int j=0; j<n-1; j++)
+  //   {
+  //     memcpy(R + n*j, QR + m*j, (j+1)*sizeof(*QR));
+  //     memset(R + j+1 + n*j, 0, (n-j-1)*sizeof(*QR));
+  //   }
+  //   
+  //   memcpy(R + n*(n-1), QR + m*(n-1), n*sizeof(*QR));
+  // }
+  // else
+  // {
+  //   for (int j=0; j<m; j++)
+  //   {
+  //     memcpy(R + m*j, QR + m*j, (j+1)*sizeof(*QR));
+  //     memset(R + j+1 + m*j, 0, (m-j-1)*sizeof(*QR));
+  //   }
+  //   
+  //   memcpy(R + m*m, QR + m*m, (m*n-m*m)*sizeof(*QR));
+  // }
+  memset(R, 0, minmn*n*sizeof(*R));
+  for (int j=0; j<n; j++)
   {
-    for (int j=0; j<n-1; j++)
-    {
-      memcpy(R + n*j, QR + m*j, (j+1)*sizeof(*QR));
-      memset(R + j+1 + n*j, 0, (n-j-1)*sizeof(*QR));
-    }
-    
-    memcpy(R + n*(n-1), QR + m*(n-1), n*sizeof(*QR));
-  }
-  else
-  {
-    for (int j=0; j<m; j++)
-    {
-      memcpy(R + m*j, QR + m*j, (j+1)*sizeof(*QR));
-      memset(R + j+1 + m*j, 0, (m-j-1)*sizeof(*QR));
-    }
-    
-    memcpy(R + m*m, QR + m*m, (m*n-m*m)*sizeof(*QR));
+    for (int i=0; i<=j && i<minmn; i++)
+      R[i + minmn*j] = QR[i + m*j];
   }
   
   return R_;
