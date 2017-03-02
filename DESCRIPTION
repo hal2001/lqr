@@ -1,8 +1,9 @@
 Package: lqr
 Type: Package
-Title: TODO
+Title: Orthogonal Factorizations
 Version: 0.1-0
-Description: TODO
+Description: A streamlined interface for carefully optimized, highly
+    high-performance access to the 'QR' and 'LQ' factorizations.
 License: BSD 2-clause License + file LICENSE
 Depends:
     R (>= 3.1.0)
