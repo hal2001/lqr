@@ -7,18 +7,23 @@
 QR(x, retq = TRUE, retr = TRUE)
 }
 \arguments{
-\item{x}{}
+\item{x}{A numeric matrix.}
 
 \item{retq, retr}{Should Q and/or R be returned?}
 }
 \value{
-TODO
+If both \code{retq} and \code{retr}, then a list containing \code{Q} and
+\code{R} is returned.  Otherwise, just the requested object is returned.
+If neither \code{retq} and \code{retr} is \code{TRUE}, then the function
+errors.
 }
 \description{
-TODO
+Factors a matrix x = QR, where Q is orthogonal and R is upper triangular.
 }
 \details{
-TODO
+This is cheaper to compute than LQ when m>>n.
+
+The QR is computed via \code{dgeqrf()}.  Q is extracted via \code{dorgqr()}.
 }
 \examples{
 \dontrun{

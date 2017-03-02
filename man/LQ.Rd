@@ -7,18 +7,23 @@
 LQ(x, retl = TRUE, retq = TRUE)
 }
 \arguments{
-\item{x}{}
+\item{x}{A numeric matrix.}
 
 \item{retl, retq}{Should L and/or Q be returned?}
 }
 \value{
-TODO
+If both \code{retq} and \code{retr}, then a list containing \code{Q} and
+\code{R} is returned.  Otherwise, just the requested object is returned.
+If neither \code{retq} and \code{retr} is \code{TRUE}, then the function
+errors.
 }
 \description{
-TODO
+Factors a matrix x = LQ, where Q is orthogonal and L is lower triangular.
 }
 \details{
-TODO
+This is cheaper to compute than LQ when m<<n.
+
+The LQ is computed via \code{dgelqf()}.  Q is extracted via \code{dorglq()}.
 }
 \examples{
 \dontrun{
