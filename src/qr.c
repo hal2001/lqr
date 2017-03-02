@@ -1,4 +1,5 @@
 #include "lqr.h"
+#include "include/sexp2dbl.h"
 
 void dgeqrf_(cint_r m, cint_r n, dbl_r a, cint_r lda, dbl_r tau, dbl_r work, cint_r lwork, int_r info);
 void dorgqr_(cint_r m, cint_r n, cint_r k, dbl_r a, cint_r lda, cdbl_r tau, dbl_r work, cint_r lwork, int_r info);
@@ -90,7 +91,7 @@ SEXP R_qr(SEXP x, SEXP retq_, SEXP retr_)
     error("at least one of Q or R must be returned");
   
   CHECK_IS_MATRIX(x);
-  // check numeric
+  CHECK_IS_NUMERIC(x);
   
   const int m = nrows(x);
   const int n = ncols(x);
@@ -106,7 +107,9 @@ SEXP R_qr(SEXP x, SEXP retq_, SEXP retr_)
     FREE(tau);FREE(work);FREE(QR);
     THROW_MEMERR;
   }
-  memcpy(QR, DBLP(x), m*n * sizeof(*QR));
+  
+  sexp2dbl(QR, x, m*n);
+  
   
   dgeqrf_(&m, &n, QR, &m, tau, work, &lwork, &info);
   if (info != 0)

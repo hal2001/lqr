@@ -1,6 +1,7 @@
 #ifndef __SEXP2DBL_H__
 #define __SEXP2DBL_H__
 
+
 static inline void sexp2dbl(double *const restrict dest, SEXP src, const int len)
 {
   if (TYPEOF(src) == REALSXP)
@@ -14,5 +15,6 @@ static inline void sexp2dbl(double *const restrict dest, SEXP src, const int len
   else
     error("internal error in sexp2dbl(): src not a numeric type\n");
 }
+
 
 #endif

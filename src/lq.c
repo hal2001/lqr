@@ -69,7 +69,7 @@ SEXP R_lq(SEXP x, SEXP retl_, SEXP retq_)
     error("at least one of Q or R must be returned");
   
   CHECK_IS_MATRIX(x);
-  // check numeric
+  CHECK_IS_NUMERIC(x);
   
   const int m = nrows(x);
   const int n = ncols(x);
@@ -85,7 +85,9 @@ SEXP R_lq(SEXP x, SEXP retl_, SEXP retq_)
     FREE(tau);FREE(work);FREE(LQ);
     THROW_MEMERR;
   }
-  memcpy(LQ, DBLP(x), m*n * sizeof(*LQ));
+  
+  sexp2dbl(LQ, x, m*n);
+  
   
   dgelqf_(&m, &n, LQ, &m, tau, work, &lwork, &info);
   if (info != 0)

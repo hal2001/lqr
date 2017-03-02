@@ -8,5 +8,7 @@
 #include "include/RNACI.h"
 #include "include/reactor.h"
 
+#include "include/sexp2dbl.h"
+
 
 #endif
