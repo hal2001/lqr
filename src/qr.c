@@ -76,7 +76,8 @@ static inline SEXP get_Q(cint m, cint n, dbl_r QR, dbl_r tau, dbl_r work, cint l
 
 SEXP R_qr(SEXP x, SEXP retq_, SEXP retr_)
 {
-  SEXP Q, R;
+  SEXP Q;
+  SEXP R = R_NilValue; // suppress false positive compiler warning;
   int lwork;
   int info;
   double *work, *tau, *QR;
