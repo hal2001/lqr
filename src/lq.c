@@ -38,7 +38,7 @@ static inline SEXP get_Q(cint m, cint n, dbl_r LQ, dbl_r tau, dbl_r work, cint l
   const int minmn = MIN(m, n);
   newRmat(Q, minmn, n, "dbl");
   
-  dorglq_(&m, &n, &minmn, LQ, &m, tau, work, &lwork, info);
+  dorglq_(&minmn, &n, &minmn, LQ, &m, tau, work, &lwork, info);
   if (*info != 0)
   {
     FREE(work);FREE(tau);FREE(LQ);
@@ -54,7 +54,8 @@ static inline SEXP get_Q(cint m, cint n, dbl_r LQ, dbl_r tau, dbl_r work, cint l
 
 SEXP R_lq(SEXP x, SEXP retl_, SEXP retq_)
 {
-  SEXP Q, L;
+  SEXP Q;
+  SEXP L = R_NilValue; // suppress false positive compiler warning
   int lwork;
   int info;
   double *work, *tau, *LQ;
