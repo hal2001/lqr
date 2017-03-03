@@ -7,7 +7,7 @@
 
 
 
-A streamlined interface for carefully optimized, highly high-performance access to the QR and LQ factorizations.
+A streamlined interface for carefully optimized, high-performance access to the QR and LQ orthogonal factorizations.
 
 
 ## Installation
