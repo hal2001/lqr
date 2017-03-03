@@ -34,9 +34,10 @@ static inline SEXP get_L(cint m, cint n, cdbl_r LQ)
 
 static inline SEXP get_Q(cint m, cint n, dbl_r LQ, dbl_r tau, dbl_r work, cint lwork, int_r info)
 {
-  SEXP Q;
+  SEXP Q_;
   const int minmn = MIN(m, n);
-  newRmat(Q, minmn, n, "dbl");
+  newRmat(Q_, minmn, n, "dbl");
+  double *const restrict Q = DBLP(Q_);
   
   dorglq_(&minmn, &n, &minmn, LQ, &m, tau, work, &lwork, info);
   if (*info != 0)
@@ -45,9 +46,13 @@ static inline SEXP get_Q(cint m, cint n, dbl_r LQ, dbl_r tau, dbl_r work, cint l
     THROW_LAPACKERR(*info);
   }
   
-  memcpy(DBLP(Q), LQ, minmn*n * sizeof(*LQ));
+  for (int j=0; j<n; j++)
+  {
+    for (int i=0; i<minmn; i++)
+      Q[i + minmn*j] = LQ[i + m*j];
+  }
   
-  return Q;
+  return Q_;
 }
 
 
