@@ -50,3 +50,34 @@ lq <- LQ(x)
 all.equal(lq$L %*% lq$Q, x)
 ## [1] TRUE
 ```
+
+
+
+## Benchmarks
+
+```r
+library(lqr)
+library(rbenchmark)
+
+rqr <- function(x)
+{
+  tmp <- qr(x, LAPACK=TRUE)
+  list(Q=qr.Q(tmp), R=qr.R(tmp))
+}
+
+cols <- cols <- c("test", "replications", "elapsed", "relative")
+reps <- 25
+
+m = 5000
+n = 1000
+x = matrix(rnorm(m*n), m, n)
+
+benchmark(QR(x), rqr(x), replications=reps, columns=cols)
+##     test replications elapsed relative
+## 1  QR(x)           25  15.135    1.000
+## 2 rqr(x)           25  53.302    3.522
+```
+
+OpenBLAS with 4 threads on a 4 core 2nd generation Intel Core i5 were used for this benchmark.
+
+Several other benchmarks can be found in the `inst/benchmarks/` subdirectory of the source tree for the package.  The above was based on the benchmark found in the file `qr.r`, but with a larger problem size.  The supplied benchmarks are small and should complete reasonably quickly.  However, the performance of **lqr** scales up somewhat (relative to base R) as problem sizes grow.
