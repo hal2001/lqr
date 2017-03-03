@@ -26,14 +26,10 @@ QR = QR(x, retq=TRUE, retr=TRUE)
 stopifnot(all.equal(QR$Q, Q2))
 stopifnot(all.equal(QR$R, R2))
 
-
-
 m = 10
 n = 3
 x = matrix(rnorm(m*n), m, n)
 test(x)
-
-
 
 x = t(x)
 test(x)

@@ -17,18 +17,17 @@ test = function(x)
   stopifnot(all.equal(R, R_R))
 }
 
+
+
 m = 5
 n = 5
 x = matrix(rnorm(m*n), m, n)
 test(x)
 
-
-
 m = 10
 n = 3
 x = matrix(rnorm(m*n), m, n)
 test(x)
-
 
 x = t(x)
 test(x)
