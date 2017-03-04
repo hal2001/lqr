@@ -3,7 +3,7 @@ library(rbenchmark)
 
 rqr <- function(x) qr.R(qr(x, LAPACK=TRUE))
 
-cols <- cols <- c("test", "replications", "elapsed", "relative")
+cols <- c("test", "replications", "elapsed", "relative")
 reps <- 25
 
 m = 2000
