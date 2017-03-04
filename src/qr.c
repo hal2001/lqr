@@ -131,12 +131,12 @@ SEXP R_qr(SEXP x, SEXP retq_, SEXP retr_)
     SEXP ret, retnames;
     retnames = make_list_names(2, "Q", "R");
     ret = make_list(retnames, 2, Q, R);
-    UNPROTECT(4);
+    R_END;
     return ret;
   }
   else
   {
-    UNPROTECT(1);
+    R_END;
     if (retq)
       return Q;
     else if (retr)
