@@ -26,7 +26,7 @@ SEXP R_trsolve(SEXP A, SEXP b, SEXP triang)
   R_END;
   
   if (info != 0)
-    error("LAPACK routine dtrtrs() returned error code %d\n", info);
+    THROW_LAPACKERR(info);
   
   return x_;
 }
