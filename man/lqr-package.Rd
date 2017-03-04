@@ -12,4 +12,3 @@ access to the QR and LQ factorizations.
 Drew Schmidt
 }
 \keyword{package}
-

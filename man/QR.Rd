@@ -43,4 +43,3 @@ neither <- QR(x, retq=FALSE, retr=FALSE)
 }
 
 }
-

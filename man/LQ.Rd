@@ -43,4 +43,3 @@ neither <- LQ(x, retl=FALSE, retq=FALSE)
 }
 
 }
-
