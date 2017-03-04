@@ -103,7 +103,11 @@ SEXP R_lq(SEXP x, SEXP retl_, SEXP retq_)
   }
   
   if (retl)
+  {
     L = get_L(m, n, LQ);
+    classgets(L, mkString("triangular"));
+    setAttrib(L, install("uplo"), mkString("L"));
+  }
   if (retq)
     Q = get_Q(m, n, LQ, tau, work, lwork, &info);
   

@@ -5,13 +5,17 @@ void dtrtrs_(cchar_r uplo, cchar_r trans, cchar_r diag, cint_r n, cint_r nrhs,
 
 
 
-SEXP R_trsolve(SEXP A, SEXP b)
+SEXP R_trsolve(SEXP A, SEXP b, SEXP triang)
 {
   SEXP x_;
   int info;
-  const char uplo = 'U';
+  const char uplo = *STR(triang);
   const char trans = 'N';
   const char diag = 'N';
+  
+  CHECK_IS_MATRIX(A);
+  CHECK_IS_NUMERIC(A);
+  CHECK_IS_NUMERIC(b);
   
   const int nrhs = ncols(b);
   const int n = nrows(A);

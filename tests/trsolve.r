@@ -9,4 +9,4 @@ x[lower.tri(x)] = 0
 
 y = matrix(rnorm(n))
 
-all.equal(trsolve(x, y), solve(x, y))
+all.equal(trsolve(x, y, "U"), solve(x, y))
