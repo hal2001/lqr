@@ -10,5 +10,7 @@
 
 #include "include/sexp2dbl.h"
 
+#include "include/lapack.h"
+
 
 #endif

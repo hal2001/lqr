@@ -1,9 +1,5 @@
 #include "lqr.h"
 
-void dtrtrs_(cchar_r uplo, cchar_r trans, cchar_r diag, cint_r n, cint_r nrhs,
-  cdbl_r a, cint_r lda, dbl_r b, cint_r ldb, int_r info);
-
-
 
 SEXP R_trsolve(SEXP A, SEXP b, SEXP triang)
 {

@@ -1,8 +1,5 @@
 #include "lqr.h"
-#include "include/sexp2dbl.h"
 
-void dgeqrf_(cint_r m, cint_r n, dbl_r a, cint_r lda, dbl_r tau, dbl_r work, cint_r lwork, int_r info);
-void dorgqr_(cint_r m, cint_r n, cint_r k, dbl_r a, cint_r lda, cdbl_r tau, dbl_r work, cint_r lwork, int_r info);
 
 static inline int worksize(cint m, cint n)
 {
