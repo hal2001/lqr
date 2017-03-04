@@ -2,4 +2,5 @@
 
 export(LQ)
 export(QR)
-useDynLib(lqr, R_qr, R_lq)
+export(trsolve)
+useDynLib(lqr, R_qr, R_lq, R_trsolve)

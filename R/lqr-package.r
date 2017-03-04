@@ -4,7 +4,7 @@
 #' A streamlined interface for carefully optimized, highly high-performance
 #' access to the QR and LQ factorizations.
 #' 
-#' @useDynLib lqr, R_qr, R_lq
+#' @useDynLib lqr, R_qr, R_lq, R_trsolve
 #' 
 #' @docType package
 #' @name lqr-package
