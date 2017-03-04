@@ -16,7 +16,7 @@ SEXP R_trsolve(SEXP A, SEXP b, SEXP triang)
   const int nrhs = ncols(b);
   const int n = nrows(A);
   if (n != ncols(A))
-    error("inputs matrix 'A' must be square");
+    error("input matrix 'A' must be square");
   
   newRmat(x_, n, nrhs, "dbl");
   double *const restrict x = DBLP(x_);
