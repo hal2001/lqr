@@ -35,5 +35,9 @@ void dormlq_(cchar_r side, cchar_r trans, cint_r m, cint_r n, cint_r k,
   cint_r lwork, int_r info);
 
 
+// triangular b = A*b
+void dtrmm_(cchar_r side, cchar_r uplo, cchar_r transa, cchar_r diag, cint_r m,
+  cint_r n, cdbl_r alpha, cdbl_r a, cint_r lda, dbl_r b, cint_r ldb);
+
 
 #endif
