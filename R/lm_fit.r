@@ -1,3 +1,15 @@
+#' lm_fit
+#' 
+#' Basic linear model fitter.
+#' 
+#' @param x
+#' Feature matrix.
+#' @param  y
+#' Response variable.
+#' 
+#' @return
+#' A list containing the coefficients, residuals, and effects of the model.
+#' 
 #' @export
 lm_fit <- function(x, y)
 {
