@@ -12,3 +12,4 @@ mdl2 = lm_fit(x, y)
 
 stopifnot(all.equal(matrix(mdl1$residuals), mdl2$residuals))
 stopifnot(all.equal(matrix(mdl1$coefficients), mdl2$coefficients))
+stopifnot(all.equal(matrix(mdl1$effects[1:n]), mdl2$effects))
