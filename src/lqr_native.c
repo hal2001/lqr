@@ -15,8 +15,9 @@ static const R_CallMethodDef CallEntries[] = {
   {"R_trsolve", (DL_FUNC) &R_trsolve, 2},
   {NULL, NULL, 0}
 };
+
 void R_init_lqr(DllInfo *dll)
-                       {
-                       R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
-                       R_useDynamicSymbols(dll, FALSE);
-                       }
+{
+  R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+  R_useDynamicSymbols(dll, FALSE);
+}
