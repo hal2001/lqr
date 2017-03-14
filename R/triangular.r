@@ -21,7 +21,7 @@ trsolve.triangular <- function(A, b)
 .trsolve <- function(A, b, uplo)
 {
   if (is.null(dim(b)))
-    dim(b) <- c(LENGTH(b), 1)
+    dim(b) <- c(length(b), 1)
   
   .Call(R_trsolve, A, b, uplo)
 }
