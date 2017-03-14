@@ -13,8 +13,9 @@ test = function(x)
   QR = qr(t(x))
   Q_R = qr.Q(QR)
   R_R = qr.R(QR)
-  stopifnot(all.equal(Qt, Q_R))
-  stopifnot(all.equal(R, R_R))
+  class(R_R) = "triangular"
+  stopifnot(all.equal(Qt, Q_R, check.attributes=FALSE))
+  stopifnot(all.equal(R, R_R, check.attributes=FALSE))
 }
 
 

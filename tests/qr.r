@@ -9,7 +9,8 @@ test = function(x)
 
   R1 = QR(x, retq=FALSE)
   R2 = qr.R(qr(x))
-  stopifnot(all.equal(R1, R2))
+  class(R2) = "triangular"
+  stopifnot(all.equal(R1, R2, check.attributes=FALSE))
 }
 
 
@@ -22,9 +23,10 @@ test(x)
 # also make sure QR(retq=T, retr=T) is working
 Q2 = qr.Q(qr(x))
 R2 = qr.R(qr(x))
+class(R2) = "triangular"
 QR = QR(x, retq=TRUE, retr=TRUE)
 stopifnot(all.equal(QR$Q, Q2))
-stopifnot(all.equal(QR$R, R2))
+stopifnot(all.equal(QR$R, R2, check.attributes=FALSE))
 
 m = 10
 n = 3
