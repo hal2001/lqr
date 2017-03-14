@@ -7,12 +7,12 @@
 
 extern SEXP R_lq(SEXP x, SEXP retl_, SEXP retq_);
 extern SEXP R_qr(SEXP x, SEXP retq_, SEXP retr_);
-extern SEXP R_trsolve(SEXP A, SEXP b);
+extern SEXP R_trsolve(SEXP A, SEXP b, SEXP uplo);
 
 static const R_CallMethodDef CallEntries[] = {
   {"R_lq", (DL_FUNC) &R_lq, 3},
   {"R_qr", (DL_FUNC) &R_qr, 3},
-  {"R_trsolve", (DL_FUNC) &R_trsolve, 2},
+  {"R_trsolve", (DL_FUNC) &R_trsolve, 3},
   {NULL, NULL, 0}
 };
 
