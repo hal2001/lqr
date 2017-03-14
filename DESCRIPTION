@@ -12,8 +12,6 @@ ByteCompile: yes
 URL: https://github.com/wrathematics/lqr
 BugReports: https://github.com/wrathematics/lqr/issues
 Authors@R: c(person("Drew", "Schmidt", role=c("aut", "cre"),
-    email="wrathematics@gmail.com"), 
-    person("Christian", "Heckendorf", role="ctb", comment="Caught some
-    memory errors."))
+    email="wrathematics@gmail.com"))
 Maintainer: Drew Schmidt <wrathematics@gmail.com>
 RoxygenNote: 6.0.1
